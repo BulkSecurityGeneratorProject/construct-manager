@@ -1,0 +1,35 @@
+{
+    "generator-jhipster": {
+        "promptValues": {
+            "packageName": "fr.mathieugeissler.constructmanager"
+        },
+        "jhipsterVersion": "5.8.0",
+        "applicationType": "monolith",
+        "baseName": "ConstructManagerApi",
+        "packageName": "fr.mathieugeissler.constructmanager",
+        "packageFolder": "fr/mathieugeissler/constructmanager",
+        "serverPort": "8080",
+        "authenticationType": "jwt",
+        "cacheProvider": "ehcache",
+        "enableHibernateCache": true,
+        "websocket": false,
+        "databaseType": "sql",
+        "devDatabaseType": "h2Disk",
+        "prodDatabaseType": "mariadb",
+        "searchEngine": false,
+        "messageBroker": false,
+        "serviceDiscoveryType": false,
+        "buildTool": "maven",
+        "enableSwaggerCodegen": false,
+        "jwtSecretKey": "OGEzMTVhZTkyOTVlMzNjYTU5ZDZiZGNjN2ZlNWUwMmU4YWE5ZjNhZWJmZmQ1YTZkNzE1NGY1ODRmMmIyODQzOTRlZmZmMTQ1YzFhNDRiMzcxMGFlMzcyNWNmMjJjMGJiM2ZhM2Y3NzRlNTllODNjZWVjMmQwYTI3ZDg1YzI5YmY=",
+        "clientFramework": "angularX",
+        "useSass": true,
+        "clientPackageManager": "npm",
+        "testFrameworks": [],
+        "jhiPrefix": "jhi",
+        "entitySuffix": "",
+        "dtoSuffix": "DTO",
+        "otherModules": [],
+        "enableTranslation": false
+    }
+}

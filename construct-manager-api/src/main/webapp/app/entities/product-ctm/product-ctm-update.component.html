@@ -1,0 +1,85 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-product-ctm-heading">Create or edit a Product</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!product.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="product.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="product.name" required/>
+                    <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.name?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="product.description" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_packaging">Packaging</label>
+                    <input type="number" class="form-control" name="packaging" id="field_packaging"
+                        [(ngModel)]="product.packaging" required/>
+                    <div [hidden]="!(editForm.controls.packaging?.dirty && editForm.controls.packaging?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.packaging?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.packaging?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_packagingUnit">Packaging Unit</label>
+                    <select class="form-control" name="packagingUnit" [(ngModel)]="product.packagingUnit" id="field_packagingUnit" >
+                        <option value="ML">ML</option>
+                        <option value="KG">KG</option>
+                        <option value="M">M</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_link">Link</label>
+                    <input type="text" class="form-control" name="link" id="field_link"
+                        [(ngModel)]="product.link" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_price">Price</label>
+                    <input type="number" class="form-control" name="price" id="field_price"
+                        [(ngModel)]="product.price" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_reference">Reference</label>
+                    <input type="text" class="form-control" name="reference" id="field_reference"
+                        [(ngModel)]="product.reference" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_shop">Shop</label>
+                    <select class="form-control" id="field_shop" name="shop" [(ngModel)]="product.shopId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="shopOption.id" *ngFor="let shopOption of shops; trackBy: trackShopById">{{shopOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

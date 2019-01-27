@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="roomSize">
+            <h2><span>Room Size</span> {{roomSize.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Floor Size</span></dt>
+                <dd>
+                    <span>{{roomSize.floorSize}}</span>
+                </dd>
+                <dt><span>Wall Size</span></dt>
+                <dd>
+                    <span>{{roomSize.wallSize}}</span>
+                </dd>
+                <dt><span>Room</span></dt>
+                <dd>
+                    <div *ngIf="roomSize.roomId">
+                        <a [routerLink]="['/room-ctm', roomSize.roomId, 'view']">{{roomSize.roomId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/room-size-ctm', roomSize.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

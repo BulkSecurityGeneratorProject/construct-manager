@@ -1,0 +1,90 @@
+entity Home {
+	name String required,
+    description String
+}
+
+entity Room {
+	name String required,
+    description String
+}
+
+entity RoomSize {
+	floorSize Double,
+    wallSize Double
+}
+
+entity RoomType {
+	name String required
+}
+
+entity RoomGenericProduct {
+	quantity Double required,
+    quantityUnit Unit
+}
+
+entity GenericProduct {
+	name String required,
+    description String
+}
+
+entity Product {
+	name String required,
+    description String,
+    packaging Double required,
+    packagingUnit Unit,
+    link String,
+    price Double,
+    reference String
+}
+
+entity Division {
+	name String required,
+    description String
+}
+
+enum Unit {
+	ML, KG, M
+}
+
+entity GenericProductCategory {
+	name String required,
+    description String
+}
+
+entity Shop {
+	name String required,
+    description String
+}
+
+entity Estimate {
+	name String required,
+    description String,
+    total Double
+}
+
+entity EstimateProduct {
+	number Integer,
+    price Double
+}
+
+relationship OneToMany {
+	Home{rooms} to Room,
+    GenericProductCategory{products} to GenericProduct,
+    Shop{products} to Product,
+    Estimate{products} to EstimateProduct,
+    Division{estimates} to Estimate,
+    Room{products} to RoomGenericProduct
+}
+
+relationship ManyToOne {
+    EstimateProduct{product} to Product,
+    EstimateProduct{generic} to GenericProduct,
+    Room{type} to RoomType,
+    RoomGenericProduct{product} to GenericProduct,
+    RoomSize{room} to Room
+}
+
+dto * with mapstruct
+service all with serviceImpl
+paginate * with pagination
+angularSuffix * with ctm

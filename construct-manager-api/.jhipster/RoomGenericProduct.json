@@ -1,0 +1,41 @@
+{
+    "name": "RoomGenericProduct",
+    "fields": [
+        {
+            "fieldName": "quantity",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "quantityUnit",
+            "fieldType": "Unit",
+            "fieldValues": "ML,KG,M"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "room",
+            "otherEntityName": "room",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "product",
+            "otherEntityName": "genericProduct",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190126160417",
+    "entityTableName": "room_generic_product",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "ctm"
+}

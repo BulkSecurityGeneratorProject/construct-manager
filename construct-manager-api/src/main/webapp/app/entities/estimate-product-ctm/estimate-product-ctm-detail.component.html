@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="estimateProduct">
+            <h2><span>Estimate Product</span> {{estimateProduct.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Number</span></dt>
+                <dd>
+                    <span>{{estimateProduct.number}}</span>
+                </dd>
+                <dt><span>Price</span></dt>
+                <dd>
+                    <span>{{estimateProduct.price}}</span>
+                </dd>
+                <dt><span>Estimate</span></dt>
+                <dd>
+                    <div *ngIf="estimateProduct.estimateId">
+                        <a [routerLink]="['/estimate-ctm', estimateProduct.estimateId, 'view']">{{estimateProduct.estimateId}}</a>
+                    </div>
+                </dd>
+                <dt><span>Product</span></dt>
+                <dd>
+                    <div *ngIf="estimateProduct.productId">
+                        <a [routerLink]="['/product-ctm', estimateProduct.productId, 'view']">{{estimateProduct.productId}}</a>
+                    </div>
+                </dd>
+                <dt><span>Generic</span></dt>
+                <dd>
+                    <div *ngIf="estimateProduct.genericId">
+                        <a [routerLink]="['/generic-product-ctm', estimateProduct.genericId, 'view']">{{estimateProduct.genericId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/estimate-product-ctm', estimateProduct.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

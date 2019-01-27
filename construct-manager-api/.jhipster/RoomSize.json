@@ -1,0 +1,31 @@
+{
+    "name": "RoomSize",
+    "fields": [
+        {
+            "fieldName": "floorSize",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "wallSize",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "room",
+            "otherEntityName": "room",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190126160415",
+    "entityTableName": "room_size",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "ctm"
+}
